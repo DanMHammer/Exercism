@@ -1,15 +1,5 @@
 import datetime
 
-def date_to_day(date):
-    days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-    dayNumber=date.weekday()
-    return days[dayNumber]
-
-def day_to_date(day):
-    days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-    dayNumber=days.indexof(day)
-    return dayNumber
-
 def meetup_day(year, month, day_of_the_week, which):
     start = datetime.date(year, month, 1)
     possiblities = []
