@@ -2,7 +2,7 @@ def numeral(number):
     output = ''
 
     if number >= 1000:
-        output += 'M' * number//1000
+        output += 'M' * (number//1000)
         number = number % 1000
     if number >= 900:
         output += 'CM'
@@ -14,7 +14,7 @@ def numeral(number):
         output += 'CD'
         number = number % 400
     if number >= 100:
-        output += 'C' * number//100
+        output += 'C' * (number//100)
         number = number % 100
     if number >= 90:
         output += 'XC'
@@ -25,4 +25,19 @@ def numeral(number):
     if number >= 40:
         output += 'XL'
         number = number % 40
-    if number 
+    if number >= 10:
+        output += 'X'*(number//10)
+        number = number % 10
+    if number >= 9:
+        output += 'IX'
+        number = number %9
+    if number >= 5:
+        output += 'V'
+        number = number%5
+    if number >= 4:
+        output += 'IV'
+        number = number%4
+    if number >= 1:
+        output += 'I' * number
+
+    return output
