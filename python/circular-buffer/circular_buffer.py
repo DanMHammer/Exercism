@@ -1,3 +1,6 @@
+import collections
+
+
 class BufferFullException(Exception):
     pass
 
@@ -8,16 +11,22 @@ class BufferEmptyException(Exception):
 
 class CircularBuffer(object):
     def __init__(self, capacity):
-        pass
+        self.d = collections.deque(maxlen=capacity)
 
     def read(self):
-        pass
+        try:
+            return self.d.popleft()
+        except IndexError:
+            raise BufferEmptyException("Can't read an empty buffer.")
 
     def write(self, data):
-        pass
+        if len(self.d) == self.d.maxlen:
+            raise BufferFullException("Can't write to a full buffer.")
+        else:
+            self.d.append(data)
 
     def overwrite(self, data):
-        pass
+        self.d.append(data)
 
     def clear(self):
-        pass
+        self.d.clear()
